@@ -1,0 +1,7 @@
+interface:
+  display_name: "Web AI Workspace"
+  short_description: "Coordinate web AI reviews, Git, cloud, and courier work"
+  default_prompt: "Use $web-ai-workspace to coordinate browser AI cross-review and mechanically route exact artifacts across Git, cloud storage, and local courier work."
+
+policy:
+  allow_implicit_invocation: true
