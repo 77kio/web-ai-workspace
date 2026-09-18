@@ -9,6 +9,12 @@ metadata:
 
 Use this skill for browser-based multi-AI cross-review and workflow collaboration involving remote Git, local Codex execution, cloud-drive artifacts, reviews, edits, handoffs, or final synthesis.
 
+## Browser selection and fallback
+
+Prefer the built-in browser for browser-based work unless the user explicitly requests an external browser.
+
+When the user explicitly requests an external browser, use that browser first. If the external-browser invocation fails twice consecutively, stop retrying it and continue with the built-in browser. Record the failed attempts and the fallback in the run facts; do not treat either failure as task success. If the user explicitly forbids fallback or the built-in browser is unavailable, mark the task `BLOCKED` instead.
+
 ## Core separation
 
 Workers perform semantic work.
