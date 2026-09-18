@@ -15,6 +15,12 @@ Prefer the built-in browser for browser-based work unless the user explicitly re
 
 When the user explicitly requests an external browser, use that browser first. If the external-browser invocation fails twice consecutively, stop retrying it and continue with the built-in browser. Record the failed attempts and the fallback in the run facts; do not treat either failure as task success. If the user explicitly forbids fallback or the built-in browser is unavailable, mark the task `BLOCKED` instead.
 
+## Default semantic-work routing
+
+By default, content modification, review, and architecture or design work must be performed by an authorized worker/model in an external browser. If no authorized external worker is available, route the task as `BLOCKED` rather than performing the semantic work locally.
+
+Local Codex is a routing and courier layer only: it may route requests, observe provider/workspace state, and transfer messages and artifacts exactly and losslessly. It must preserve payload, order, provenance, versions, and partial or failed states, and must not summarize, rewrite, translate, interpret, review, architect, or otherwise alter semantic content. Explicitly authorized mechanical workspace and version-control operations remain allowed for exact worker-provided artifacts.
+
 ## Core separation
 
 Workers perform semantic work.
